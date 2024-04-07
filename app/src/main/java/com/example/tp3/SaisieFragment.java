@@ -14,8 +14,7 @@ import java.util.ArrayList;
 
 public class SaisieFragment extends Fragment {
 
-    private EditText editTextNom;
-    private EditText editTextPrenom;
+    private EditText editTextNom,editTextPrenom , editTextDate , editTextPhone , editTextMail;
     CheckBox checkBoxSport, checkBoxMusique, checkBoxCinema, checkBoxLecture, checkBoxJeuxVideo;
 
     RadioButton radioButtonOui , radioButtonNon;
@@ -27,6 +26,9 @@ public class SaisieFragment extends Fragment {
 
         editTextNom = view.findViewById(R.id.editTextNom);
         editTextPrenom = view.findViewById(R.id.editTextPrenom);
+        editTextDate = view.findViewById((R.id.editTextDate));
+        editTextPhone = view.findViewById(R.id.editTextPhone);
+        editTextMail = view.findViewById(R.id.editTextMail);
         checkBoxSport = view.findViewById(R.id.checkBoxSport);
         checkBoxMusique = view.findViewById(R.id.checkBoxMusique);
         checkBoxCinema = view.findViewById(R.id.checkBoxCinema);
@@ -42,6 +44,9 @@ public class SaisieFragment extends Fragment {
                 // Récupérer les valeurs saisies dans les champs nom et prénom
                 String nom = editTextNom.getText().toString();
                 String prenom = editTextPrenom.getText().toString();
+                String date = editTextDate.getText().toString();
+                String phone = editTextPhone.getText().toString();
+                String email = editTextMail.getText().toString();
 
                 ArrayList<String> centresInteretSelectionnes = new ArrayList<>();
                 if (checkBoxSport.isChecked()) {
@@ -72,6 +77,9 @@ public class SaisieFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("nom", nom);
                 bundle.putString("prenom", prenom);
+                bundle.putString("date", date);
+                bundle.putString("phone", phone);
+                bundle.putString("email", email);
                 bundle.putStringArrayList("centresInteret", centresInteretSelectionnes);
                 bundle.putString("sync", sync);
                 // Créer une instance du fragment d'affichage et lui passer les données
